@@ -4,11 +4,17 @@
  */
 package view;
 
+import controller.IOFile;
+import controller.IOFileColor;
+import controller.IOFileFont;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JColorChooser;
 
 /**
  *
@@ -22,6 +28,12 @@ public class NewQuote extends javax.swing.JFrame {
     
     private String save;
     private static int SO=1;
+    private Integer fontSize;
+    private String font;
+    private Color color;
+    private int style;
+    private Font f;
+    private String bgPath;
     
     public NewQuote() {
         initComponents();
@@ -29,10 +41,80 @@ public class NewQuote extends javax.swing.JFrame {
         this.setSize(360, 640);
         jScrollPane2.getViewport().setOpaque(false);
         jScrollPane2.setOpaque(false);
-        jTextArea2.setOpaque(false); 
-        jTextArea2.setBackground(new Color(0,0,0,0));
+        m_text.setOpaque(false); 
+        m_text.setBackground(new Color(0,0,0,0));
         this.save=""+SO++;
-        //jTextArea2.setCaretColor(new Color(0,0,0,0));
+        //writeData();
+        readData();
+        
+        fontSize=IOFile.doc("src/controller/sizeQuote.txt");
+        font=IOFileFont.doc("src/controller/fontQuote.txt");
+        color=IOFileColor.doc("src/controller/colorQuote.DAT");
+        style=IOFile.doc("src/controller/styleQuote.txt");
+//        //System.out.println(style);
+        if(style==0) {
+            f=new Font(font,Font.PLAIN,fontSize);
+        }
+        else if(style==1) {
+            f=new Font(font,Font.BOLD,fontSize);
+        }
+        else if(style==2) {
+            f=new Font(font,Font.ITALIC,fontSize);
+        }
+        
+        m_text.setFont(f);
+        m_text.setForeground(color);
+//        
+//        bgPath = IOFileFont.doc("src/controller/BGQuote.txt");
+//        m_BG.setIcon(new ImageIcon(bgPath));
+//        
+    }
+    public void readData() {
+        File f1= new File("src/controller/sizeQuote.txt");
+        if (f1.exists()) {
+            fontSize = IOFile.doc("src/controller/sizeQuote.txt");
+            //System.out.println(fontSize);
+        }
+        else {
+            fontSize=14;
+        }
+        File f2= new File("src/controller/fontQuote.txt");
+        if (f2.exists()) {
+            font = IOFileFont.doc("src/controller/fontQuote.txt");
+            //System.out.println(fontSize);
+        }
+        else {
+            font="Segue UI";
+        }
+        File f3= new File("src/controller/colorQuote.DAT");
+        if (f3.exists()) {
+            color = IOFileColor.doc("src/controller/colorQuote.DAT");
+            //System.out.println(fontSize);
+        }
+        else {
+            color=Color.BLACK;
+        }
+        File f4= new File("src/controller/styleQuote.txt");
+        if (f4.exists()) {
+            style = IOFile.doc("src/controller/styleQuote.txt");
+            //System.out.println(fontSize);
+        }
+        else {
+            style=0;
+        }
+    }
+    public void writeData() {
+        String selected=String.valueOf(m_coChuCBx.getSelectedItem());
+        int size=Integer.parseInt(selected);
+        IOFile.viet("src/controller/sizeQuote.txt", size);
+        
+        String font1=String.valueOf(m_fontChu.getSelectedItem());
+        IOFileFont.viet("src/controller/fontQuote.txt", font1);
+        
+        IOFileColor.viet("src/controller/colorQuote.DAT", color);
+        
+        style=m_style.getSelectedIndex();
+        IOFile.viet("src/controller/styleQuote.txt", style);
     }
 
     /**
@@ -44,17 +126,429 @@ public class NewQuote extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        m_chonAnh = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        m_setFont = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        m_coChuCBx = new javax.swing.JComboBox<>();
+        m_okBtn = new javax.swing.JToggleButton();
+        m_cancelBtn = new javax.swing.JToggleButton();
+        m_font = new javax.swing.JLabel();
+        m_fontChu = new javax.swing.JComboBox<>();
+        m_fontStyle = new javax.swing.JLabel();
+        m_style = new javax.swing.JComboBox<>();
+        m_color = new javax.swing.JLabel();
+        m_colorChose = new javax.swing.JTextField();
+        m_preview = new javax.swing.JTextField();
+        m_previewBtn = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        m_settingImage = new javax.swing.JLabel();
+        m_settingFont = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         m_panelQuote = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        m_text = new javax.swing.JTextArea();
+        m_BG = new javax.swing.JLabel();
         jOptionPane1 = new javax.swing.JOptionPane();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        m_quayLai = new javax.swing.JToggleButton();
+
+        m_chonAnh.setLocationByPlatform(true);
+        m_chonAnh.setMinimumSize(new java.awt.Dimension(370, 650));
+        m_chonAnh.setModal(true);
+        m_chonAnh.setResizable(false);
+        m_chonAnh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_chonAnhMouseClicked(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(171, 190, 171));
+        jPanel2.setMaximumSize(new java.awt.Dimension(370, 650));
+        jPanel2.setMinimumSize(new java.awt.Dimension(370, 650));
+        jPanel2.setPreferredSize(new java.awt.Dimension(370, 650));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\23.jpg")); // NOI18N
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+
+        jLabel19.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\24.jpg")); // NOI18N
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        jLabel20.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\26.jpg")); // NOI18N
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
+
+        jLabel21.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\4.jpg")); // NOI18N
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+
+        jLabel22.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\5.jpg")); // NOI18N
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\6.jpg")); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\25.jpg")); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\8.jpg")); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\9.jpg")); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\10.jpg")); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\11.jpg")); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\12.jpg")); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+
+        jLabel12.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\13.jpg")); // NOI18N
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\14.jpg")); // NOI18N
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+
+        jLabel14.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\15.jpg")); // NOI18N
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+
+        jLabel15.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\17.jpg")); // NOI18N
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+
+        jLabel16.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\18.jpg")); // NOI18N
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
+
+        jLabel17.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\19.jpg")); // NOI18N
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+
+        jLabel23.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\20.jpg")); // NOI18N
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+
+        jLabel24.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\21.jpg")); // NOI18N
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
+
+        jLabel25.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\small\\22.jpg")); // NOI18N
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jScrollPane3.setViewportView(jPanel3);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 62, 336, 490));
+
+        jToggleButton1.setText("Ok");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 70, -1));
+
+        javax.swing.GroupLayout m_chonAnhLayout = new javax.swing.GroupLayout(m_chonAnh.getContentPane());
+        m_chonAnh.getContentPane().setLayout(m_chonAnhLayout);
+        m_chonAnhLayout.setHorizontalGroup(
+            m_chonAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, m_chonAnhLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        m_chonAnhLayout.setVerticalGroup(
+            m_chonAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, m_chonAnhLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        m_setFont.setMaximumSize(new java.awt.Dimension(300, 500));
+        m_setFont.setMinimumSize(new java.awt.Dimension(300, 500));
+        m_setFont.setPreferredSize(new java.awt.Dimension(300, 500));
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setText("Size");
+        jPanel5.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 49, 70, 37));
+
+        m_coChuCBx.setMaximumRowCount(10);
+        m_coChuCBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
+        m_coChuCBx.setToolTipText("Chọn\n");
+        jPanel5.add(m_coChuCBx, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
+
+        m_okBtn.setText("Ok");
+        m_okBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_okBtnActionPerformed(evt);
+            }
+        });
+        jPanel5.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 63, -1));
+
+        m_cancelBtn.setText("Cancel");
+        jPanel5.add(m_cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 85, -1));
+
+        m_font.setText("Font ");
+        jPanel5.add(m_font, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 107, 54, 24));
+
+        m_fontChu.setMaximumRowCount(10);
+        m_fontChu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arial", "Bahnschrift", "Calibri", "Calibri Light", "Cambria", "Cambria Math", "Candara", "Cascadia Code", "Cascadia Mono", "Consolas", "Constantia", "Corbel", "Corbel Light", "Corbel New", "Dialog", "DialogInput", "Microsoft Sans Serif", "Palatino Linotype", "SansSerif", "Segoe UI", "Segoe UI Black", "Segoe UI Light", "Segoe UI Semibold", "Segoe UI Semilight", "Serif", "Sitka Banner", "Sitka Display", "Sitka Heading", "Sitka Small", "Sitka Subheading", "Sitka Text", "Tahoma", "Times New Roman", "Verdana", " " }));
+        jPanel5.add(m_fontChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 104, -1, 30));
+
+        m_fontStyle.setText("Font Style");
+        jPanel5.add(m_fontStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 164, 54, 24));
+
+        m_style.setMaximumRowCount(3);
+        m_style.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plain", "Bold", "Italic", " ", " " }));
+        jPanel5.add(m_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 161, 133, 30));
+
+        m_color.setText("Color");
+        jPanel5.add(m_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 229, -1, -1));
+
+        m_colorChose.setEditable(false);
+        m_colorChose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_colorChoseMouseClicked(evt);
+            }
+        });
+        jPanel5.add(m_colorChose, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 221, 32, 32));
+
+        m_preview.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        m_preview.setText("Hello World");
+        m_preview.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_previewMouseClicked(evt);
+            }
+        });
+        jPanel5.add(m_preview, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 240, 63));
+
+        m_previewBtn.setText("Preview");
+        m_previewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_previewBtnActionPerformed(evt);
+            }
+        });
+        jPanel5.add(m_previewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\bigger\\1 (1).jpg")); // NOI18N
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 500));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout m_setFontLayout = new javax.swing.GroupLayout(m_setFont.getContentPane());
+        m_setFont.getContentPane().setLayout(m_setFontLayout);
+        m_setFontLayout.setHorizontalGroup(
+            m_setFontLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        m_setFontLayout.setVerticalGroup(
+            m_setFontLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(360, 640));
@@ -62,9 +556,19 @@ public class NewQuote extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-picture-32.png")); // NOI18N
+        m_settingImage.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-picture-32.png")); // NOI18N
+        m_settingImage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_settingImageMouseClicked(evt);
+            }
+        });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-fonts-app-48.png")); // NOI18N
+        m_settingFont.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-fonts-app-48.png")); // NOI18N
+        m_settingFont.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                m_settingFontMouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-download-32.png")); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,20 +587,20 @@ public class NewQuote extends javax.swing.JFrame {
         jScrollPane2.setEnabled(false);
         jScrollPane2.setFocusable(false);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(20);
-        jScrollPane2.setViewportView(jTextArea2);
+        m_text.setColumns(20);
+        m_text.setRows(20);
+        jScrollPane2.setViewportView(m_text);
 
         m_panelQuote.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 39, 300, 470));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\30.jpg")); // NOI18N
-        m_panelQuote.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 540));
+        m_BG.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\30.jpg")); // NOI18N
+        m_panelQuote.add(m_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 540));
 
-        jToggleButton1.setText("Quay lại");
-        jToggleButton1.setContentAreaFilled(false);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        m_quayLai.setText("Quay lại");
+        m_quayLai.setContentAreaFilled(false);
+        m_quayLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                m_quayLaiActionPerformed(evt);
             }
         });
 
@@ -109,11 +613,11 @@ public class NewQuote extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(m_quayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(m_settingFont, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(m_settingImage, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26))
@@ -133,9 +637,9 @@ public class NewQuote extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel4)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jToggleButton1))
+                        .addComponent(m_settingImage)
+                        .addComponent(m_settingFont, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(m_quayLai))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -194,11 +698,263 @@ public class NewQuote extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void m_quayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_quayLaiActionPerformed
         // TODO add your handling code here:
         new MyQuote().setVisible(true);
         this.dispose();
+    }//GEN-LAST:event_m_quayLaiActionPerformed
+
+    private void m_settingImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_settingImageMouseClicked
+        // TODO add your handling code here:
+        m_chonAnh.setLocationRelativeTo(null);
+        m_chonAnh.setVisible(true);
+        m_chonAnh.setLocationRelativeTo(null);
+    }//GEN-LAST:event_m_settingImageMouseClicked
+
+    private void m_chonAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_chonAnhMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_m_chonAnhMouseClicked
+
+    private void m_okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_okBtnActionPerformed
+
+        writeData();
+        readData();
+        fontSize=IOFile.doc("src/controller/sizeQuote.txt");
+        font=IOFileFont.doc("src/controller/fontQuote.txt");
+        color=IOFileColor.doc("src/controller/colorQuote.DAT");
+        style=IOFile.doc("src/controller/styleQuote.txt");
+//        //System.out.println(style);
+        if(style==0) {
+            f=new Font(font,Font.PLAIN,fontSize);
+        }
+        else if(style==1) {
+            f=new Font(font,Font.BOLD,fontSize);
+        }
+        else if(style==2) {
+            f=new Font(font,Font.ITALIC,fontSize);
+        }
+        
+        m_text.setFont(f);
+        m_text.setForeground(color);
+        
+        m_setFont.setVisible(false);
+        //new Letter1().setVisible(true);
+        //this.setVisible(false);
+        //this.dispose();
+    }//GEN-LAST:event_m_okBtnActionPerformed
+
+    private void m_colorChoseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_colorChoseMouseClicked
+        // TODO add your handling code here:
+        color=JColorChooser.showDialog(this, "Chon mau", Color.BLACK);
+        m_colorChose.setBackground(color);
+
+    }//GEN-LAST:event_m_colorChoseMouseClicked
+
+    private void m_previewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_previewMouseClicked
+        // TODO add your handling code here:
+        readData();
+        //writeData();
+        Font f;
+        if(style==0) {
+            f=new Font(font,Font.PLAIN,fontSize);
+            m_preview.setFont(f);
+            m_preview.setForeground(color);
+        }
+        else if(style==1) {
+            f=new Font(font,Font.BOLD,fontSize);
+            m_preview.setFont(f);
+            m_preview.setForeground(color);
+        }
+        else if(style==2) {
+            f=new Font(font,Font.ITALIC,fontSize);
+            m_preview.setFont(f);
+            m_preview.setForeground(color);
+        }
+
+    }//GEN-LAST:event_m_previewMouseClicked
+
+    private void m_previewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_previewBtnActionPerformed
+        // TODO add your handling code here:
+        writeData();
+        readData();
+        //writeData();
+        Font f;
+        if(style==0) {
+            f=new Font(font,Font.PLAIN,fontSize);
+            m_preview.setFont(f);
+            m_preview.setForeground(color);
+        }
+        else if(style==1) {
+            f=new Font(font,Font.BOLD,fontSize);
+            m_preview.setFont(f);
+            m_preview.setForeground(color);
+        }
+        else if(style==2) {
+            f=new Font(font,Font.ITALIC,fontSize);
+            m_preview.setFont(f);
+            m_preview.setForeground(color);
+        }
+    }//GEN-LAST:event_m_previewBtnActionPerformed
+
+    private void m_settingFontMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_settingFontMouseClicked
+        // TODO add your handling code here:
+        m_setFont.setLocationRelativeTo(null);
+        m_setFont.setVisible(true);
+        m_setFont.setLocationRelativeTo(null);
+    }//GEN-LAST:event_m_settingFontMouseClicked
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        m_chonAnh.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (23).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (24).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (26).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (4).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (5).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (6).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (25).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (8).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (9).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (10).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (12).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (11).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (13).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (14).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (15).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (17).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (18).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (19).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (20).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (21).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+        // TODO add your handling code here:
+        bgPath="D:/Data ProPTIT/JavaApp/BG/3/bigger/1 (22).jpg";
+        m_BG.setIcon(new ImageIcon(bgPath));
+        IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
+    }//GEN-LAST:event_jLabel25MouseClicked
 
     /**
      * @param args the command line arguments
@@ -236,16 +992,58 @@ public class NewQuote extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel m_BG;
+    private javax.swing.JToggleButton m_cancelBtn;
+    private javax.swing.JDialog m_chonAnh;
+    private javax.swing.JComboBox<String> m_coChuCBx;
+    private javax.swing.JLabel m_color;
+    private javax.swing.JTextField m_colorChose;
+    private javax.swing.JLabel m_font;
+    private javax.swing.JComboBox<String> m_fontChu;
+    private javax.swing.JLabel m_fontStyle;
+    private javax.swing.JToggleButton m_okBtn;
     private javax.swing.JPanel m_panelQuote;
+    private javax.swing.JTextField m_preview;
+    private javax.swing.JToggleButton m_previewBtn;
+    private javax.swing.JToggleButton m_quayLai;
+    private javax.swing.JDialog m_setFont;
+    private javax.swing.JLabel m_settingFont;
+    private javax.swing.JLabel m_settingImage;
+    private javax.swing.JComboBox<String> m_style;
+    private javax.swing.JTextArea m_text;
     // End of variables declaration//GEN-END:variables
 }

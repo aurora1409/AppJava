@@ -91,15 +91,20 @@ public class SettingFont extends javax.swing.JFrame {
         m_colorChose = new javax.swing.JTextField();
         m_preview = new javax.swing.JTextField();
         m_previewBtn = new javax.swing.JToggleButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setText("Size");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 49, 70, 37));
 
         m_coChuCBx.setMaximumRowCount(10);
         m_coChuCBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
         m_coChuCBx.setToolTipText("Chọn\n");
+        jPanel1.add(m_coChuCBx, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
 
         m_okBtn.setText("Ok");
         m_okBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -107,8 +112,10 @@ public class SettingFont extends javax.swing.JFrame {
                 m_okBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 436, 63, -1));
 
         m_cancelBtn.setText("Cancel");
+        jPanel1.add(m_cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 436, 85, -1));
 
         jToggleButton1.setText("Quay lại");
         jToggleButton1.setContentAreaFilled(false);
@@ -117,18 +124,24 @@ public class SettingFont extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 11, -1, -1));
 
         m_font.setText("Font ");
+        jPanel1.add(m_font, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 107, 54, 24));
 
         m_fontChu.setMaximumRowCount(10);
         m_fontChu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arial", "Bahnschrift", "Calibri", "Calibri Light", "Cambria", "Cambria Math", "Candara", "Cascadia Code", "Cascadia Mono", "Consolas", "Constantia", "Corbel", "Corbel Light", "Corbel New", "Dialog", "DialogInput", "Microsoft Sans Serif", "Palatino Linotype", "SansSerif", "Segoe UI", "Segoe UI Black", "Segoe UI Light", "Segoe UI Semibold", "Segoe UI Semilight", "Serif", "Sitka Banner", "Sitka Display", "Sitka Heading", "Sitka Small", "Sitka Subheading", "Sitka Text", "Tahoma", "Times New Roman", "Verdana", " " }));
+        jPanel1.add(m_fontChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 104, -1, 30));
 
         m_fontStyle.setText("Font Style");
+        jPanel1.add(m_fontStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 164, 54, 24));
 
         m_style.setMaximumRowCount(3);
         m_style.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plain", "Bold", "Italic", " ", " " }));
+        jPanel1.add(m_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 161, 133, 30));
 
         m_color.setText("Color");
+        jPanel1.add(m_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 229, -1, -1));
 
         m_colorChose.setEditable(false);
         m_colorChose.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,6 +149,7 @@ public class SettingFont extends javax.swing.JFrame {
                 m_colorChoseMouseClicked(evt);
             }
         });
+        jPanel1.add(m_colorChose, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 221, 32, 32));
 
         m_preview.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_preview.setText("Hello World");
@@ -144,6 +158,7 @@ public class SettingFont extends javax.swing.JFrame {
                 m_previewMouseClicked(evt);
             }
         });
+        jPanel1.add(m_preview, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 340, 240, 63));
 
         m_previewBtn.setText("Preview");
         m_previewBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -151,78 +166,10 @@ public class SettingFont extends javax.swing.JFrame {
                 m_previewBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(m_previewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 297, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jToggleButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(m_color)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(m_fontStyle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                                .addComponent(m_font, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(m_fontChu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(m_coChuCBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(m_style, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(m_colorChose, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(105, Short.MAX_VALUE)
-                        .addComponent(m_okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(m_cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(m_preview)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(m_previewBtn)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(29, 29, 29))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(m_coChuCBx, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(m_fontChu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(m_font, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(m_style, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(m_fontStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(m_color)
-                    .addComponent(m_colorChose, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(m_previewBtn)
-                .addGap(18, 18, 18)
-                .addComponent(m_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(m_cancelBtn)
-                    .addComponent(m_okBtn))
-                .addGap(39, 39, 39))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\bigger\\1 (2).jpg")); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,9 +188,22 @@ public class SettingFont extends javax.swing.JFrame {
     private void m_okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_okBtnActionPerformed
 
         writeData(); 
+//        String selected=String.valueOf(m_coChuCBx.getSelectedItem());
+//        int size=Integer.parseInt(selected);
+//        IOFile.viet("src/controller/size.txt", size);
+//        
+//        String font1=String.valueOf(m_fontChu.getSelectedItem());
+//        IOFileFont.viet("src/controller/font.txt", font1);
+//        
+//        IOFileColor.viet("src/controller/color.DAT", color);
+//        
+//        style=m_style.getSelectedIndex();
+//        IOFile.viet("src/controller/style.txt", style);
+
+    // Note for letter 1 and 2
         new Letter1().setVisible(true);
-        //this.setVisible(false);
-        this.dispose();
+        this.setVisible(false);
+        //this.dispose();
     }//GEN-LAST:event_m_okBtnActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -341,6 +301,7 @@ public class SettingFont extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton m_cancelBtn;

@@ -57,19 +57,19 @@ public class DanhMuc extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setBackground(new java.awt.Color(221, 193, 245));
+        jScrollPane1.setBackground(new java.awt.Color(220, 220, 245));
         jScrollPane1.setBorder(null);
-        jScrollPane1.setForeground(new java.awt.Color(221, 193, 245));
+        jScrollPane1.setForeground(new java.awt.Color(220, 220, 245));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setFocusCycleRoot(true);
         jScrollPane1.setFocusTraversalPolicyProvider(true);
 
-        jPanel3.setBackground(new java.awt.Color(221, 193, 245));
-        jPanel3.setForeground(new java.awt.Color(221, 193, 245));
+        jPanel3.setBackground(new java.awt.Color(220, 220, 245));
+        jPanel3.setForeground(new java.awt.Color(220, 220, 245));
 
         m_letter1.setEditable(false);
-        m_letter1.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter1.setBackground(new java.awt.Color(220, 220, 245));
         m_letter1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter1.setText("Bức thư thứ 1");
         m_letter1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,7 +79,7 @@ public class DanhMuc extends javax.swing.JFrame {
         });
 
         m_letter2.setEditable(false);
-        m_letter2.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter2.setBackground(new java.awt.Color(220, 220, 245));
         m_letter2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter2.setText("Bức thư thứ 2");
         m_letter2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,68 +89,68 @@ public class DanhMuc extends javax.swing.JFrame {
         });
 
         m_letter3.setEditable(false);
-        m_letter3.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter3.setBackground(new java.awt.Color(220, 220, 245));
         m_letter3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter3.setText("Bức thư thứ 3");
 
         m_letter4.setEditable(false);
-        m_letter4.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter4.setBackground(new java.awt.Color(220, 220, 245));
         m_letter4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter4.setText("Bức thư thứ 4");
 
         m_letter5.setEditable(false);
-        m_letter5.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter5.setBackground(new java.awt.Color(220, 220, 245));
         m_letter5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter5.setText("Bức thư thứ 5");
 
         m_letter6.setEditable(false);
-        m_letter6.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter6.setBackground(new java.awt.Color(220, 220, 245));
         m_letter6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter6.setText("Bức thư thứ 6");
 
         m_letter7.setEditable(false);
-        m_letter7.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter7.setBackground(new java.awt.Color(220, 220, 245));
         m_letter7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter7.setText("Bức thư thứ 7");
 
         m_letter8.setEditable(false);
-        m_letter8.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter8.setBackground(new java.awt.Color(220, 220, 245));
         m_letter8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter8.setText("Bức thư thứ 8");
 
         m_letter9.setEditable(false);
-        m_letter9.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter9.setBackground(new java.awt.Color(220, 220, 245));
         m_letter9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter9.setText("Bức thư thứ 9");
 
         m_letter10.setEditable(false);
-        m_letter10.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter10.setBackground(new java.awt.Color(220, 220, 245));
         m_letter10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter10.setText("Bức thư thứ 10");
         m_letter10.setToolTipText("");
 
         m_letter11.setEditable(false);
-        m_letter11.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter11.setBackground(new java.awt.Color(220, 220, 245));
         m_letter11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter11.setText("Bức thư thứ 11");
 
         m_letter12.setEditable(false);
-        m_letter12.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter12.setBackground(new java.awt.Color(220, 220, 245));
         m_letter12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter12.setText("Bức thư thứ 12");
 
         m_letter13.setEditable(false);
-        m_letter13.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter13.setBackground(new java.awt.Color(220, 220, 245));
         m_letter13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter13.setText("Bức thư thứ 13");
 
         m_letter14.setEditable(false);
-        m_letter14.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter14.setBackground(new java.awt.Color(220, 220, 245));
         m_letter14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter14.setText("Bức thư thứ 14");
 
         m_letter15.setEditable(false);
-        m_letter15.setBackground(new java.awt.Color(221, 193, 245));
+        m_letter15.setBackground(new java.awt.Color(220, 220, 245));
         m_letter15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         m_letter15.setText("Bức thư thứ 15");
 

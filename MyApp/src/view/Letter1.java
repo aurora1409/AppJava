@@ -30,7 +30,7 @@ public class Letter1 extends javax.swing.JFrame {
      */
     private Integer fontSize;
     private String font;
-    Color color;
+    private Color color;
     private int style;
     private Font f;
     private String bgPath;
@@ -348,11 +348,13 @@ public class Letter1 extends javax.swing.JFrame {
     private void m_fontAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_fontAppMouseClicked
         // TODO add your handling code here:
         //jPopupMenu1.show(m_fontApp, evt.getX(), evt.getY());
-        fontSize=IOFile.doc("src/controller/size.txt");
+        //fontSize=IOFile.doc("src/controller/size.txt");
         //System.out.println(fontSize);
-        Font f=new Font("Segue UI",Font.PLAIN,fontSize);
-        m_letterTP1.setFont(f);
+        //Font f=new Font("Segue UI",Font.PLAIN,fontSize);
+        //m_letterTP1.setFont(f);
         new SettingFont().setVisible(true);
+        
+        
         //this.dispose();
 
 //        m_settingFont.setVisible(true);

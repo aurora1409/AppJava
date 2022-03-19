@@ -108,9 +108,8 @@ public class Letter2 extends javax.swing.JFrame {
         });
         jPopupMenu1.add(m_taiAnhLen);
 
-        m_chonAnh.setMaximumSize(new java.awt.Dimension(340, 650));
         m_chonAnh.setMinimumSize(new java.awt.Dimension(340, 650));
-        m_chonAnh.setPreferredSize(new java.awt.Dimension(340, 650));
+        m_chonAnh.setModal(true);
         m_chonAnh.setResizable(false);
 
         jPanel2.setMaximumSize(new java.awt.Dimension(340, 650));
@@ -285,6 +284,11 @@ public class Letter2 extends javax.swing.JFrame {
                 m_settingFontMouseClicked(evt);
             }
         });
+        m_settingFont.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                m_settingFontKeyTyped(evt);
+            }
+        });
         jPanel1.add(m_settingFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-picture-32.png")); // NOI18N
@@ -433,6 +437,11 @@ public class Letter2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         m_chonAnh.setVisible(false);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void m_settingFontKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_m_settingFontKeyTyped
+        // TODO add your handling code here:
+        new SettingFont().setVisible(true);
+    }//GEN-LAST:event_m_settingFontKeyTyped
 
     /**
      * @param args the command line arguments

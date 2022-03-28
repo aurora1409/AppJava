@@ -33,6 +33,7 @@ public class MyQuote extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,14 +41,18 @@ public class MyQuote extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jToggleButton1.setText("Tạo");
+        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jToggleButton1.setText("Tạo mới");
+        jToggleButton1.setContentAreaFilled(false);
+        jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 140, 50));
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 240, 60));
 
+        jToggleButton2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jToggleButton2.setText("Quay lại");
         jToggleButton2.setContentAreaFilled(false);
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +62,12 @@ public class MyQuote extends javax.swing.JFrame {
         });
         jPanel1.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\21.jpg")); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 20)); // NOI18N
+        jLabel1.setText("Click to create");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 150, 20));
+
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/4/bigger/1 2.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 360, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,6 +143,7 @@ public class MyQuote extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton1;

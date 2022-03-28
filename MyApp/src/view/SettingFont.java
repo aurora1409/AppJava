@@ -98,14 +98,17 @@ public class SettingFont extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Size");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 49, 70, 37));
 
+        m_coChuCBx.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_coChuCBx.setMaximumRowCount(10);
         m_coChuCBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
         m_coChuCBx.setToolTipText("Chọn\n");
         jPanel1.add(m_coChuCBx, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
 
+        m_okBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_okBtn.setText("Ok");
         m_okBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,9 +117,11 @@ public class SettingFont extends javax.swing.JFrame {
         });
         jPanel1.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 436, 63, -1));
 
+        m_cancelBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_cancelBtn.setText("Cancel");
         jPanel1.add(m_cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 436, 85, -1));
 
+        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jToggleButton1.setText("Quay lại");
         jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,20 +131,25 @@ public class SettingFont extends javax.swing.JFrame {
         });
         jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 11, -1, -1));
 
+        m_font.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_font.setText("Font ");
         jPanel1.add(m_font, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 107, 54, 24));
 
+        m_fontChu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_fontChu.setMaximumRowCount(10);
         m_fontChu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arial", "Bahnschrift", "Calibri", "Calibri Light", "Cambria", "Cambria Math", "Candara", "Cascadia Code", "Cascadia Mono", "Consolas", "Constantia", "Corbel", "Corbel Light", "Corbel New", "Dialog", "DialogInput", "Microsoft Sans Serif", "Palatino Linotype", "SansSerif", "Segoe UI", "Segoe UI Black", "Segoe UI Light", "Segoe UI Semibold", "Segoe UI Semilight", "Serif", "Sitka Banner", "Sitka Display", "Sitka Heading", "Sitka Small", "Sitka Subheading", "Sitka Text", "Tahoma", "Times New Roman", "Verdana", " " }));
-        jPanel1.add(m_fontChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 104, -1, 30));
+        jPanel1.add(m_fontChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 104, 133, 30));
 
+        m_fontStyle.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_fontStyle.setText("Font Style");
-        jPanel1.add(m_fontStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 164, 54, 24));
+        jPanel1.add(m_fontStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 164, 70, 24));
 
+        m_style.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_style.setMaximumRowCount(3);
         m_style.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plain", "Bold", "Italic", " ", " " }));
         jPanel1.add(m_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 161, 133, 30));
 
+        m_color.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_color.setText("Color");
         jPanel1.add(m_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 229, -1, -1));
 
@@ -160,6 +170,7 @@ public class SettingFont extends javax.swing.JFrame {
         });
         jPanel1.add(m_preview, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 340, 240, 63));
 
+        m_previewBtn.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         m_previewBtn.setText("Preview");
         m_previewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +179,7 @@ public class SettingFont extends javax.swing.JFrame {
         });
         jPanel1.add(m_previewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 297, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\3\\bigger\\1 (2).jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/bigger/1 (2).jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

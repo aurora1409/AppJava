@@ -92,6 +92,7 @@ public class Letter2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         m_BG = new javax.swing.JLabel();
 
+        m_anhCoSan.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_anhCoSan.setText("Ảnh có sẵn");
         m_anhCoSan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +101,7 @@ public class Letter2 extends javax.swing.JFrame {
         });
         jPopupMenu1.add(m_anhCoSan);
 
+        m_taiAnhLen.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_taiAnhLen.setText("Tải ảnh lên");
         m_taiAnhLen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,69 +117,70 @@ public class Letter2 extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(340, 650));
         jPanel2.setMinimumSize(new java.awt.Dimension(340, 650));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\10.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/10.jpg"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\11.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/11.jpg"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\12.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/12.jpg"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\13.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/13.jpg"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\14.jpg")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/48.jpg"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\15.jpg")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/45.jpg"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\17.jpg")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/42.jpg"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\18.jpg")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/18.jpg"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\small\\19.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/47.jpg"))); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
         });
 
+        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jToggleButton1.setLabel("Ok");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +256,7 @@ public class Letter2 extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        m_quayLaiBtn.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         m_quayLaiBtn.setText("Quay lại");
         m_quayLaiBtn.setContentAreaFilled(false);
         m_quayLaiBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +264,7 @@ public class Letter2 extends javax.swing.JFrame {
                 m_quayLaiBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(m_quayLaiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, -1));
+        jPanel1.add(m_quayLaiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 90, -1));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -276,9 +280,9 @@ public class Letter2 extends javax.swing.JFrame {
         m_letterTP2.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(m_letterTP2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 310, 510));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 240, 430));
 
-        m_settingFont.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-fonts-app-48.png")); // NOI18N
+        m_settingFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/icon/icons8-fonts-app-48.png"))); // NOI18N
         m_settingFont.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 m_settingFontMouseClicked(evt);
@@ -291,7 +295,7 @@ public class Letter2 extends javax.swing.JFrame {
         });
         jPanel1.add(m_settingFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\icon\\icons8-picture-32.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/icon/icons8-picture-32.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -300,7 +304,7 @@ public class Letter2 extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 16, -1, 30));
 
         m_BG.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\13.jpg")); // NOI18N
-        jPanel1.add(m_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
+        jPanel1.add(m_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 360, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -365,63 +369,63 @@ public class Letter2 extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/10.jpg";
+        bgPath="src/Data/BG/bigger/10.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/11.jpg";
+        bgPath="src/Data/BG/bigger/11.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/12.jpg";
+        bgPath="src/Data/BG/bigger/12.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/13.jpg";
+        bgPath="src/Data/BG/bigger/13.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/14.jpg";
+        bgPath="src/Data/BG/3/bigger/1 (48).jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/15.jpg";
+        bgPath="src/Data/BG/3/bigger/1 (45).jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/17.jpg";
+        bgPath="src/Data/BG/3/bigger/1 (42).jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/18.jpg";
+        bgPath="src/Data/BG/bigger/18.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-        bgPath="D:/Data ProPTIT/JavaApp/BG/bigger/19.jpg";
+        bgPath="src/Data/BG/3/bigger/1 (47).jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel10MouseClicked

@@ -4,6 +4,13 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author PC
@@ -17,6 +24,15 @@ public class TrangChu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(360, 640);
+//        ImageIcon icon=new ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\rsz_125.jpg");
+//        Image img= icon.getImage();
+//        Image imgScale= img.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon scaleIcon = new ImageIcon(imgScale);
+//        
+//        jLabel1.setIcon(scaleIcon);
+//        jLabel1.setBackground(new Color(0,0,0,0));
+//        jLabel1.setOpaque(false);
+        
         //m_danhMucBtn.setOpaque(false);
         //m_danhMucBtn.setContentAreaFilled(false);
         //m_danhMucBtn.setBorderPainted(true);
@@ -38,15 +54,18 @@ public class TrangChu extends javax.swing.JFrame {
         m_danhMucBtn = new javax.swing.JToggleButton();
         m_myQuote = new javax.swing.JToggleButton();
         m_no = new javax.swing.JToggleButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(360, 640));
         setResizable(false);
 
         jPanel1.setMinimumSize(new java.awt.Dimension(360, 640));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        m_danhMucBtn.setBackground(new java.awt.Color(204, 204, 255));
+        m_danhMucBtn.setBackground(new java.awt.Color(113, 165, 138));
+        m_danhMucBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_danhMucBtn.setText("Danh mục");
         m_danhMucBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         m_danhMucBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -54,28 +73,35 @@ public class TrangChu extends javax.swing.JFrame {
                 m_danhMucBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(m_danhMucBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 190, 50));
+        jPanel1.add(m_danhMucBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 190, 50));
 
-        m_myQuote.setBackground(new java.awt.Color(204, 204, 255));
+        m_myQuote.setBackground(new java.awt.Color(113, 165, 138));
+        m_myQuote.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_myQuote.setText("Tạo Quote");
         m_myQuote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 m_myQuoteActionPerformed(evt);
             }
         });
-        jPanel1.add(m_myQuote, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 190, 50));
+        jPanel1.add(m_myQuote, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 190, 50));
 
-        m_no.setBackground(new java.awt.Color(204, 204, 255));
-        m_no.setText("Viết chữ lên ảnh");
+        m_no.setBackground(new java.awt.Color(113, 165, 138));
+        m_no.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        m_no.setText("Enjoy Music");
         m_no.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 m_noActionPerformed(evt);
             }
         });
-        jPanel1.add(m_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 190, 50));
+        jPanel1.add(m_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 190, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\rsz_125.jpg")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 360, 650));
+        jToggleButton1.setBackground(new java.awt.Color(113, 165, 138));
+        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jToggleButton1.setText("Viết chữ lên ảnh");
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 190, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/bigger/1 (32).jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 360, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +114,7 @@ public class TrangChu extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(374, 677));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,8 +125,12 @@ public class TrangChu extends javax.swing.JFrame {
     }//GEN-LAST:event_m_danhMucBtnActionPerformed
 
     private void m_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_noActionPerformed
-        // TODO add your handling code here:
-        new EditImage().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new EditImage().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_m_noActionPerformed
 
@@ -113,41 +143,42 @@ public class TrangChu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TrangChu().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TrangChu().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton m_danhMucBtn;
     private javax.swing.JToggleButton m_myQuote;
     private javax.swing.JToggleButton m_no;

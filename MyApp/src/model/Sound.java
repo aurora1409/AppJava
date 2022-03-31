@@ -18,10 +18,6 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
-/*///
-Tran huy
- * Mot tien ich cua congdongjava.com
-*/
 
 public class Sound extends Thread {
 

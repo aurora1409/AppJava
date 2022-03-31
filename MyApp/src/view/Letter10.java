@@ -137,14 +137,14 @@ public class Letter10 extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/2/small/1 (17).jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 2.jpg"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/2/small/1 (18).jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 5.jpg"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -280,7 +280,7 @@ public class Letter10 extends javax.swing.JFrame {
         m_letterTP2.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(m_letterTP2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 260, 450));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 270, 450));
 
         m_settingFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/icon/icons8-fonts-app-48.png"))); // NOI18N
         m_settingFont.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,8 +302,6 @@ public class Letter10 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 16, -1, 30));
-
-        m_BG.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\13.jpg")); // NOI18N
         jPanel1.add(m_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 360, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -368,14 +366,14 @@ public class Letter10 extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/2/bigger/1 (17).jpg";
+        bgPath="src/Data/BG/5/bigger/1 2.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG10.txt", bgPath);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/2/bigger/1 (18).jpg";
+        bgPath="src/Data/BG/5/bigger/1 5.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG10.txt", bgPath);
     }//GEN-LAST:event_jLabel6MouseClicked

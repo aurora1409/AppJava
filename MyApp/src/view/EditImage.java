@@ -34,7 +34,7 @@ public class EditImage extends javax.swing.JFrame {
      * Creates new form EditImage
      */
     @SuppressWarnings("empty-statement")
-    public EditImage() throws IOException {
+    public EditImage() {
 //        this.bufferedImage = cropImage(fileToWrite, WIDTH, WIDTH, WIDTH, WIDTH);
         initComponents();
         this.setLocationRelativeTo(null);

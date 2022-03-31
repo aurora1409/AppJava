@@ -117,63 +117,63 @@ public class Letter2 extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(340, 650));
         jPanel2.setMinimumSize(new java.awt.Dimension(340, 650));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/10.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 23.jpg"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/11.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 47.jpg"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/12.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 35.jpg"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/13.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 38.jpg"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/48.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 29.jpg"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/45.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 39.jpg"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/42.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 84.jpg"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/small/18.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 40.jpg"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/47.jpg"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 32.jpg"))); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -280,7 +280,7 @@ public class Letter2 extends javax.swing.JFrame {
         m_letterTP2.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(m_letterTP2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 240, 430));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 270, 450));
 
         m_settingFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/icon/icons8-fonts-app-48.png"))); // NOI18N
         m_settingFont.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,8 +302,6 @@ public class Letter2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 16, -1, 30));
-
-        m_BG.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\13.jpg")); // NOI18N
         jPanel1.add(m_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 360, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -369,63 +367,63 @@ public class Letter2 extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/bigger/10.jpg";
+        bgPath="src/Data/BG/5/bigger/1 23.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/bigger/11.jpg";
+        bgPath="src/Data/BG/5/bigger/1 47.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/bigger/12.jpg";
+        bgPath="src/Data/BG/5/bigger/1 35.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/bigger/13.jpg";
+        bgPath="src/Data/BG/5/bigger/1 38.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (48).jpg";
+        bgPath="src/Data/BG/5/bigger/1 29.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (45).jpg";
+        bgPath="src/Data/BG/5/bigger/1 39.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (42).jpg";
+        bgPath="src/Data/BG/5/bigger/1 84.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/bigger/18.jpg";
+        bgPath="src/Data/BG/5/bigger/1 40.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (47).jpg";
+        bgPath="src/Data/BG/5/bigger/1 32.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG2.txt", bgPath);
     }//GEN-LAST:event_jLabel10MouseClicked

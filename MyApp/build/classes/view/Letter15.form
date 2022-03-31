@@ -140,7 +140,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/3/small/22.jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 57.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -361,11 +361,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="m_BG">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Data ProPTIT\JavaApp\BG\bigger\13.jpg"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="-60" width="360" height="700"/>

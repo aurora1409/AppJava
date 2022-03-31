@@ -116,14 +116,14 @@ public class Letter14 extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(340, 650));
         jPanel2.setMinimumSize(new java.awt.Dimension(340, 650));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/8.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 48.jpg"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/9.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 74.jpg"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -151,7 +151,7 @@ public class Letter14 extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/17.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 53.jpg"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -165,14 +165,14 @@ public class Letter14 extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/19.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 78.jpg"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/small/20.jpg"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 58.jpg"))); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -280,7 +280,7 @@ public class Letter14 extends javax.swing.JFrame {
         m_letterTP2.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(m_letterTP2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 230, 430));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 250, 410));
 
         m_settingFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/icon/icons8-fonts-app-48.png"))); // NOI18N
         m_settingFont.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,8 +302,6 @@ public class Letter14 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 16, -1, 30));
-
-        m_BG.setIcon(new javax.swing.ImageIcon("D:\\Data ProPTIT\\JavaApp\\BG\\bigger\\13.jpg")); // NOI18N
         jPanel1.add(m_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 360, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -347,14 +345,14 @@ public class Letter14 extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (8).jpg";
+        bgPath="src/Data/BG/5/bigger/1 48.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG14.txt", bgPath);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (9).jpg";
+        bgPath="src/Data/BG/5/bigger/1 74.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG14.txt", bgPath);
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -382,7 +380,7 @@ public class Letter14 extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (17).jpg";
+        bgPath="src/Data/BG/5/bigger/1 53.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG14.txt", bgPath);
     }//GEN-LAST:event_jLabel7MouseClicked
@@ -396,14 +394,14 @@ public class Letter14 extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (19).jpg";
+        bgPath="src/Data/BG/5/bigger/1 78.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG14.txt", bgPath);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/3/bigger/1 (20).jpg";
+        bgPath="src/Data/BG/5/bigger/1 58.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BG14.txt", bgPath);
     }//GEN-LAST:event_jLabel10MouseClicked

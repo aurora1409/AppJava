@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.IOFileFont;
+
 /**
  *
  * @author PC
@@ -13,6 +15,7 @@ public class DanhMuc extends javax.swing.JFrame {
     /**
      * Creates new form DanhMuc
      */
+    private String check;
     public DanhMuc() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -293,7 +296,6 @@ public class DanhMuc extends javax.swing.JFrame {
 
         m_quayLaiBtn.setBackground(new java.awt.Color(255, 255, 204));
         m_quayLaiBtn.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        m_quayLaiBtn.setForeground(new java.awt.Color(255, 255, 255));
         m_quayLaiBtn.setText("Quay lại");
         m_quayLaiBtn.setContentAreaFilled(false);
         m_quayLaiBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -303,7 +305,7 @@ public class DanhMuc extends javax.swing.JFrame {
         });
         jPanel1.add(m_quayLaiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/bigger/1 (29).jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/bigger/1 55.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,90 +331,120 @@ public class DanhMuc extends javax.swing.JFrame {
 
     private void m_letter1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter1MousePressed
         // TODO add your handling code here:
+        check="1";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter1().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter1MousePressed
 
     private void m_letter2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter2MouseClicked
         // TODO add your handling code here:
+        check="2";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter2().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter2MouseClicked
 
     private void m_letter3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter3MouseClicked
         // TODO add your handling code here:
+        check="3";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter3().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter3MouseClicked
 
     private void m_letter4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter4MouseClicked
         // TODO add your handling code here:
+        check="4";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter4().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter4MouseClicked
 
     private void m_letter5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter5MouseClicked
         // TODO add your handling code here:
+        check="5";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter5().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter5MouseClicked
 
     private void m_letter6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter6MouseClicked
         // TODO add your handling code here:
+        check="6";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter6().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter6MouseClicked
 
     private void m_letter7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter7MouseClicked
         // TODO add your handling code here:
+        check="7";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter7().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter7MouseClicked
 
     private void m_letter8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter8MouseClicked
         // TODO add your handling code here:
+        check="8";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter8().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter8MouseClicked
 
     private void m_letter9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter9MouseClicked
         // TODO add your handling code here:
+        check="9";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter9().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter9MouseClicked
 
     private void m_letter10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter10MouseClicked
         // TODO add your handling code here:
+        check="10";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter10().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter10MouseClicked
 
     private void m_letter11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter11MouseClicked
         // TODO add your handling code here:
+        check="11";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter11().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter11MouseClicked
 
     private void m_letter12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter12MouseClicked
         // TODO add your handling code here:
+        check="12";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter12().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter12MouseClicked
 
     private void m_letter13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter13MouseClicked
         // TODO add your handling code here:
+        check="13";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter13().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter13MouseClicked
 
     private void m_letter14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter14MouseClicked
         // TODO add your handling code here:
+        check="14";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter14().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter14MouseClicked
 
     private void m_letter15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_letter15MouseClicked
         // TODO add your handling code here:
+        check="15";
+        IOFileFont.viet("src/controller/check.txt", check);
         new Letter15().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_m_letter15MouseClicked

@@ -64,6 +64,11 @@ public class NewQuote extends javax.swing.JFrame {
         
         m_text.setFont(f);
         m_text.setForeground(color);
+        
+        m_coChu.setSelectedIndex(fontSize-1);
+        m_fontChu.setSelectedItem(font);
+        m_style.setSelectedItem(m_style.getItemAt(style));
+        m_colorChose.setBackground(color);
 //        
 //        bgPath = IOFileFont.doc("src/controller/BGQuote.txt");
 //        m_BG.setIcon(new ImageIcon(bgPath));
@@ -104,7 +109,7 @@ public class NewQuote extends javax.swing.JFrame {
         }
     }
     public void writeData() {
-        String selected=String.valueOf(m_coChuCBx.getSelectedItem());
+        String selected=String.valueOf(m_coChu.getSelectedItem());
         int size=Integer.parseInt(selected);
         IOFile.viet("src/controller/sizeQuote.txt", size);
         
@@ -156,9 +161,8 @@ public class NewQuote extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        m_coChuCBx = new javax.swing.JComboBox<>();
+        m_coChu = new javax.swing.JComboBox<>();
         m_okBtn = new javax.swing.JToggleButton();
-        m_cancelBtn = new javax.swing.JToggleButton();
         m_font = new javax.swing.JLabel();
         m_fontChu = new javax.swing.JComboBox<>();
         m_fontStyle = new javax.swing.JLabel();
@@ -226,7 +230,7 @@ public class NewQuote extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/66.jpg"))); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/small/1 87.jpg"))); // NOI18N
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
@@ -247,7 +251,7 @@ public class NewQuote extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 62.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 13.jpg"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -275,7 +279,7 @@ public class NewQuote extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 48.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 8.jpg"))); // NOI18N
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -289,14 +293,14 @@ public class NewQuote extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 45.jpg"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 7.jpg"))); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
             }
         });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 33.jpg"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 6.jpg"))); // NOI18N
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel14MouseClicked(evt);
@@ -310,21 +314,21 @@ public class NewQuote extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 28.jpg"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 2.jpg"))); // NOI18N
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
             }
         });
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 22.jpg"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 9.jpg"))); // NOI18N
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel17MouseClicked(evt);
             }
         });
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 13.jpg"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 3.jpg"))); // NOI18N
         jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel23MouseClicked(evt);
@@ -338,7 +342,7 @@ public class NewQuote extends javax.swing.JFrame {
             }
         });
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote/small/1 14.jpg"))); // NOI18N
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/quote1/small/1 1.jpg"))); // NOI18N
         jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel25MouseClicked(evt);
@@ -466,35 +470,35 @@ public class NewQuote extends javax.swing.JFrame {
         jLabel27.setText("Size");
         jPanel5.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 49, 70, 37));
 
-        m_coChuCBx.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        m_coChuCBx.setMaximumRowCount(10);
-        m_coChuCBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
-        m_coChuCBx.setToolTipText("Chọn\n");
-        jPanel5.add(m_coChuCBx, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
+        m_coChu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        m_coChu.setMaximumRowCount(10);
+        m_coChu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
+        m_coChu.setToolTipText("Chọn\n");
+        jPanel5.add(m_coChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
 
+        m_okBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_okBtn.setText("Ok");
         m_okBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 m_okBtnActionPerformed(evt);
             }
         });
-        jPanel5.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 63, -1));
-
-        m_cancelBtn.setText("Cancel");
-        jPanel5.add(m_cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 85, -1));
+        jPanel5.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 70, -1));
 
         m_font.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_font.setText("Font ");
         jPanel5.add(m_font, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 107, 54, 24));
 
+        m_fontChu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_fontChu.setMaximumRowCount(10);
         m_fontChu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arial", "Bahnschrift", "Calibri", "Calibri Light", "Cambria", "Cambria Math", "Candara", "Cascadia Code", "Cascadia Mono", "Consolas", "Constantia", "Corbel", "Corbel Light", "Corbel New", "Dialog", "DialogInput", "Microsoft Sans Serif", "Palatino Linotype", "SansSerif", "Segoe UI", "Segoe UI Black", "Segoe UI Light", "Segoe UI Semibold", "Segoe UI Semilight", "Serif", "Sitka Banner", "Sitka Display", "Sitka Heading", "Sitka Small", "Sitka Subheading", "Sitka Text", "Tahoma", "Times New Roman", "Verdana", " " }));
-        jPanel5.add(m_fontChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 104, -1, 30));
+        jPanel5.add(m_fontChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 104, 133, 30));
 
         m_fontStyle.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_fontStyle.setText("Font Style");
         jPanel5.add(m_fontStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 164, 70, 24));
 
+        m_style.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         m_style.setMaximumRowCount(3);
         m_style.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plain", "Bold", "Italic", " ", " " }));
         jPanel5.add(m_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 161, 133, 30));
@@ -844,7 +848,7 @@ public class NewQuote extends javax.swing.JFrame {
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/66.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 87.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel22MouseClicked
@@ -865,7 +869,7 @@ public class NewQuote extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 62.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 13.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel7MouseClicked
@@ -893,7 +897,7 @@ public class NewQuote extends javax.swing.JFrame {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 48.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 8.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -907,14 +911,14 @@ public class NewQuote extends javax.swing.JFrame {
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 45.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 7.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 33.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 6.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -928,21 +932,21 @@ public class NewQuote extends javax.swing.JFrame {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 28.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 2.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 22.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 9.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 13.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 3.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel23MouseClicked
@@ -956,7 +960,7 @@ public class NewQuote extends javax.swing.JFrame {
 
     private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
         // TODO add your handling code here:
-        bgPath="src/Data/BG/quote/bigger/1 14.jpg";
+        bgPath="src/Data/BG/quote1/bigger/1 1.jpg";
         m_BG.setIcon(new ImageIcon(bgPath));
         IOFileFont.viet("src/controller/BGQuote.txt", bgPath);
     }//GEN-LAST:event_jLabel25MouseClicked
@@ -1032,9 +1036,8 @@ public class NewQuote extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel m_BG;
-    private javax.swing.JToggleButton m_cancelBtn;
     private javax.swing.JDialog m_chonAnh;
-    private javax.swing.JComboBox<String> m_coChuCBx;
+    private javax.swing.JComboBox<String> m_coChu;
     private javax.swing.JLabel m_color;
     private javax.swing.JTextField m_colorChose;
     private javax.swing.JLabel m_font;

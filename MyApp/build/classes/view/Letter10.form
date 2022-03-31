@@ -160,7 +160,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/2/small/1 (17).jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 2.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -170,7 +170,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/2/small/1 (18).jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 5.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -308,7 +308,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="70" y="140" width="260" height="450"/>
+              <AbsoluteConstraints x="70" y="140" width="270" height="450"/>
             </Constraint>
           </Constraints>
 
@@ -361,11 +361,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="m_BG">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Data ProPTIT\JavaApp\BG\bigger\13.jpg"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="-40" width="360" height="680"/>

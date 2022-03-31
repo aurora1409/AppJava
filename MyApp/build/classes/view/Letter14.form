@@ -130,7 +130,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/3/small/8.jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 48.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -140,7 +140,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/3/small/9.jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 74.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -180,7 +180,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/3/small/17.jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 53.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -200,7 +200,7 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/3/small/19.jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 78.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -210,7 +210,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Data/BG/3/small/20.jpg"/>
+                  <Image iconType="3" name="/Data/BG/5/small/1 58.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -308,7 +308,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="160" width="230" height="430"/>
+              <AbsoluteConstraints x="80" y="180" width="250" height="410"/>
             </Constraint>
           </Constraints>
 
@@ -361,11 +361,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="m_BG">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Data ProPTIT\JavaApp\BG\bigger\13.jpg"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="-80" width="360" height="720"/>

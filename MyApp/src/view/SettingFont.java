@@ -27,10 +27,24 @@ public class SettingFont extends javax.swing.JFrame {
     private String font;
     private Color color;
     private int style;
+    private String check;
     public SettingFont() {
         initComponents();
         this.setLocationRelativeTo(null);
         readData();
+        fontSize=IOFile.doc("src/controller/size.txt");
+        font=IOFileFont.doc("src/controller/font.txt");
+        color=IOFileColor.doc("src/controller/color.DAT");
+        style=IOFile.doc("src/controller/style.txt");
+        m_coChu.setSelectedIndex(fontSize-1);
+        m_fontChu.setSelectedItem(font);
+        m_style.setSelectedItem(m_style.getItemAt(style));
+        m_colorChose.setBackground(color);
+//        for(int i=0;i<m_fontChu.getItemCount();i++) {
+//            if(font.equals(m_fontChu.getItemAt(i))) 
+//                m_fontChu.setSelectedIndex(i);
+//        }
+        //m_style.setSelectedItem(style);
         //writeData();
     }
     public void readData() {
@@ -54,9 +68,14 @@ public class SettingFont extends javax.swing.JFrame {
             style = IOFile.doc("src/controller/style.txt");
             //System.out.println(fontSize);
         }
+//        File f5= new File("src/controller/check.txt");
+//        if (f4.exists()) {
+//            style = IOFile.doc("src/controller/check.txt");
+//            //System.out.println(fontSize);
+//        }
     }
     public void writeData() {
-        String selected=String.valueOf(m_coChuCBx.getSelectedItem());
+        String selected=String.valueOf(m_coChu.getSelectedItem());
         int size=Integer.parseInt(selected);
         IOFile.viet("src/controller/size.txt", size);
         
@@ -79,10 +98,8 @@ public class SettingFont extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        m_coChuCBx = new javax.swing.JComboBox<>();
+        m_coChu = new javax.swing.JComboBox<>();
         m_okBtn = new javax.swing.JToggleButton();
-        m_cancelBtn = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
         m_font = new javax.swing.JLabel();
         m_fontChu = new javax.swing.JComboBox<>();
         m_fontStyle = new javax.swing.JLabel();
@@ -102,11 +119,11 @@ public class SettingFont extends javax.swing.JFrame {
         jLabel1.setText("Size");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 49, 70, 37));
 
-        m_coChuCBx.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        m_coChuCBx.setMaximumRowCount(10);
-        m_coChuCBx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
-        m_coChuCBx.setToolTipText("Chọn\n");
-        jPanel1.add(m_coChuCBx, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
+        m_coChu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        m_coChu.setMaximumRowCount(10);
+        m_coChu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "92", "94", "95", "96", "97", "98", "99", "100" }));
+        m_coChu.setToolTipText("Chọn\n");
+        jPanel1.add(m_coChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 52, 133, 30));
 
         m_okBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_okBtn.setText("Ok");
@@ -115,21 +132,7 @@ public class SettingFont extends javax.swing.JFrame {
                 m_okBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 436, 63, -1));
-
-        m_cancelBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        m_cancelBtn.setText("Cancel");
-        jPanel1.add(m_cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 436, 85, -1));
-
-        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jToggleButton1.setText("Quay lại");
-        jToggleButton1.setContentAreaFilled(false);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 11, -1, -1));
+        jPanel1.add(m_okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 70, -1));
 
         m_font.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         m_font.setText("Font ");
@@ -179,8 +182,8 @@ public class SettingFont extends javax.swing.JFrame {
         });
         jPanel1.add(m_previewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 297, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/bigger/1 (2).jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 500));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/5/bigger/1 72.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -140, 300, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,14 +215,45 @@ public class SettingFont extends javax.swing.JFrame {
 //        IOFile.viet("src/controller/style.txt", style);
 
     // Note for letter 1 and 2
-        new Letter1().setVisible(true);
-        this.setVisible(false);
-        //this.dispose();
+//        File f1= new File("src/controller/check.txt");
+//        if (f1.exists()) {
+        check = IOFileFont.doc("src/controller/check.txt");
+        int x= Integer.parseInt(check);
+        //System.out.println(check);
+//        }
+        if(x==1)
+            new Letter1().setVisible(true);
+        if(x==2)
+            new Letter2().setVisible(true);
+        if(x==3)
+            new Letter3().setVisible(true);
+        if(x==4)
+            new Letter4().setVisible(true);
+        if(x==5)
+            new Letter5().setVisible(true);
+        if(x==6)
+            new Letter6().setVisible(true);
+        if(x==7)
+            new Letter7().setVisible(true);
+        if(x==8)
+            new Letter8().setVisible(true);
+        if(x==9)
+            new Letter9().setVisible(true);
+        if(x==10)
+            new Letter10().setVisible(true);
+        if(x==11)
+            new Letter11().setVisible(true);
+        if(x==12)
+            new Letter12().setVisible(true);
+        if(x==13)
+            new Letter13().setVisible(true);
+        if(x==14)
+            new Letter14().setVisible(true);
+        if(x==15)
+            new Letter15().setVisible(true);
+        //this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_m_okBtnActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void m_colorChoseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_m_colorChoseMouseClicked
         // TODO add your handling code here:
@@ -314,9 +348,7 @@ public class SettingFont extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton m_cancelBtn;
-    private javax.swing.JComboBox<String> m_coChuCBx;
+    private javax.swing.JComboBox<String> m_coChu;
     private javax.swing.JLabel m_color;
     private javax.swing.JTextField m_colorChose;
     private javax.swing.JLabel m_font;

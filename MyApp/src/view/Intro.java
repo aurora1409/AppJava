@@ -42,7 +42,7 @@ public class Intro extends javax.swing.JFrame {
             jProgressBar1.setValue(i);
             
             try {
-                Thread.sleep(10);//150
+                Thread.sleep(150);//150
             } catch (InterruptedException ex) {
                 Logger.getLogger(Intro.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -347,6 +347,8 @@ public class EditImage extends javax.swing.JFrame implements WindowListener, Cha
 
     private void chooseImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseImgActionPerformed
 
+        slider_h.setValue(100);
+        slider_v.setValue(100);
         img.removeAll();
 
         img.setLayout(new BorderLayout());

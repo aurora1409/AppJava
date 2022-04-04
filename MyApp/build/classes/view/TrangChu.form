@@ -116,8 +116,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Vi&#x1ebf;t ch&#x1eef; l&#xea;n &#x1ea3;nh"/>
+            <Property name="text" type="java.lang.String" value="Ch&#x1ec9;nh s&#x1eed;a &#x1ea3;nh"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="80" y="420" width="190" height="50"/>

@@ -4,25 +4,20 @@
  */
 package view;
 
+import java.io.InputStream;
+import javax.sound.sampled.Clip;
+
 /**
  *
  * @author PC
  */
-class BoundingBox {
+class AudioStream {
 
-    int getLeft() {
+    static Clip getClip() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    int getTop() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    int getWidth() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    int getHeight() {
+    AudioStream(InputStream in) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

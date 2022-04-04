@@ -4,280 +4,230 @@
  */
 package view;
 
-import controller.IOFile;
-import controller.IOFileColor;
 import controller.IOFileFont;
-import java.awt.Rectangle;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import model.Sound;
-import java.lang.Thread;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.SwingConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+import static view.NewQuote.SaveScreenShot;
 
 /**
  *
  * @author PC
  */
-public class EditImage extends javax.swing.JFrame {
-
-    private String filePath;
-    private String soundPath;
-    long start, end;
-    long time=0;
-    private Sound sound;
+public class EditImage extends javax.swing.JFrame implements WindowListener, ChangeListener {
 
     /**
      * Creates new form EditImage
      */
-    @SuppressWarnings("empty-statement")
+//    private File f;
+    Image targetImg;
+    int targetWidth;
+    int targetHeight;
+    private String save;
+    BufferedImage Img;
+    BufferedImage ImgReset;
+    String path;
+    int[][][] rbg_buffer;
+    File f;
+
     public EditImage() {
-//        this.bufferedImage = cropImage(fileToWrite, WIDTH, WIDTH, WIDTH, WIDTH);
         initComponents();
-        this.setLocationRelativeTo(null);
-        
-//        readData();
-        //String path="D:/Data ProPTIT/JavaApp/MyApp/src/Ludum Dare 32 - Track 2.wav";
-        //IOFileFont.viet("src/controller/sound.txt", path);
-        //soundPath=path;
-        
-        
-        
-//        int i=0;
-//       while(i<=100) {
-//           time=0;
-//           while(time<50) {
-//                start = System.currentTimeMillis(); // start lấy thời gian theo millisecond
-//                for (long j=0; j<100000000; j++);    //vòng lặp không thực hiện thêm lệnh nào
-//                end = System.currentTimeMillis();   // start lấy thời gian theo millisecond
-//                System.out.println("Time Millis: " + (end - start));
-//                time+=(end-start);
-//           }
-//           i++;
-////           System.err.println(i);
-//           jSlider1.setValue(i);
-//           System.err.println(jSlider1.getValue());
-//           jLabel1.setText(""+jSlider1.getValue());
-//       }
-       
-       
-//        while(time<500) {
-//            start = System.currentTimeMillis(); // start lấy thời gian theo millisecond
-//            for (long j=0; j<100000000; j++);    //vòng lặp không thực hiện thêm lệnh nào
-//            end = System.currentTimeMillis();   // start lấy thời gian theo millisecond
-//            System.out.println("Time Millis: " + (end - start));
-//            time+=(end-start);
-//            i++;
-//            jSlider1.setValue(i);
-//            jLabel1.setText(""+jSlider1.getValue());
-////            try {
-////                Thread.sleep(150);
-////            } catch (InterruptedException ex) {
-////                Logger.getLogger(EditImage.class.getName()).log(Level.SEVERE, null, ex);
-////            }
-////            start = System.currentTimeMillis(); // start lấy thời gian theo millisecond
-////            for (long j=0; j<100000000; j++);    //vòng lặp không thực hiện thêm lệnh nào
-////            end = System.currentTimeMillis();   // start lấy thời gian theo millisecond
-////            System.out.println("Time Millis: " + (end - start));
-////            time+=(end-start);
-//        }
-        //jSlider1.setValue(10);
-//        jLabel1.setText(""+jSlider1.getValue());
-        
-        
-        
-        //Rectangle box=new Rectangle(evt.getXOnScreen(), evt.getYOnScreen(), evt.getX(), evt.getY());
-//        File imageFile = new File("D:/Data ProPTIT/JavaApp/BG/1\big/1 (28).jpg");
-//        try {
-//            BufferedImage bufferedImage = ImageIO.read(imageFile);
-//            jLabel2.setIcon((Icon) cropImage(bufferedImage, label., evt.getYOnScreen(), evt.getX(), evt.getY()));
-//        } catch (IOException ex) {
-//            Logger.getLogger(EditImage.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        addWindowListener(this);
+        Img = null;
     }
-    
-    public void readData() {
-        File f2= new File("src/controller/font.txt");
-        if (f2.exists()) {
-            soundPath = IOFileFont.doc("src/controller/sound.txt");
-            //System.out.println(fontSize);
+
+    public static BufferedImage getScreenShot(Component component) {
+        BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
+        component.paint(image.getGraphics());
+        return image;
+    }
+
+    public static void SaveScreenShot(Component component, String filename) throws Exception {
+        BufferedImage img = getScreenShot(component);
+        ImageIO.write(img, "png", new File(filename));
+
+    }
+
+    public BufferedImage toBufferedImage(Image image) {
+        if (image instanceof BufferedImage) {
+            return (BufferedImage) image;
+        }
+
+        BufferedImage Img = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D gr = Img.createGraphics();
+        gr.drawImage(image, 0, 0, null);
+        gr.dispose();
+
+        return Img;
+    }
+
+    public void ReadImagePixels() {
+
+        for (int row = 0; row < Img.getHeight(); row++) {
+            for (int col = 0; col < Img.getWidth(); col++) {
+                Color c = new Color(Img.getRGB(col, row));
+
+                rbg_buffer[0][row][col] = c.getRed();
+                rbg_buffer[1][row][col] = c.getGreen();
+                rbg_buffer[2][row][col] = c.getBlue();
+            }
         }
     }
-    
-//    private BufferedImage cropImage(BufferedImage image, BoundingBox box) {
-//        Rectangle goal = new Rectangle(Math.round(box.getLeft()* image.getWidth()),Math.round(box.getTop()* image.getHeight()),Math.round(box.getWidth() * image.getWidth()), Math.round(box.getHeight() * image.getHeight()));
-// 
-//        Rectangle clip = goal.intersection(new Rectangle(image.getWidth(), image.getHeight()));
-// 
-//        BufferedImage clippedImg = image.getSubimage(clip.x, clip.y , clip.width, clip.height);
-// 
-//        return clippedImg;
-//    }
-    
-//    File fileToWrite = new File(filePath, "url");
-//    //BufferedImage bufferedImage = cropImage(fileToWrite, x, y, w, h);
-//    BufferedImage bufferedImage;
-//
-//    private BufferedImage cropImage(File filePath, int x, int y, int w, int h){
-//
-//        try {
-//            BufferedImage originalImgage = ImageIO.read(filePath);
-//
-//            BufferedImage subImgage = originalImgage.getSubimage(x, y, w, h);
-//
-//            return subImgage;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+    public void SmoothImage() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ReadImagePixels();
+                for (int row = 1; row < Img.getHeight() - 1; row++) {
+                    for (int col = 1; col < Img.getWidth() - 1; col++) {
+                        int r = rbg_buffer[0][row - 1][col - 1]
+                                + rbg_buffer[0][row - 1][col]
+                                + rbg_buffer[0][row - 1][col + 1]
+                                + rbg_buffer[0][row][col - 1]
+                                + rbg_buffer[0][row][col]
+                                + rbg_buffer[0][row][col + 1]
+                                + rbg_buffer[0][row + 1][col - 1]
+                                + rbg_buffer[0][row + 1][col]
+                                + rbg_buffer[0][row + 1][col + 1];
+
+                        int g = rbg_buffer[1][row - 1][col - 1]
+                                + rbg_buffer[1][row - 1][col]
+                                + rbg_buffer[1][row - 1][col + 1]
+                                + rbg_buffer[1][row][col - 1]
+                                + rbg_buffer[1][row][col]
+                                + rbg_buffer[1][row][col + 1]
+                                + rbg_buffer[1][row + 1][col - 1]
+                                + rbg_buffer[1][row + 1][col]
+                                + rbg_buffer[1][row + 1][col + 1];
+
+                        int b = rbg_buffer[2][row - 1][col - 1]
+                                + rbg_buffer[2][row - 1][col]
+                                + rbg_buffer[2][row - 1][col + 1]
+                                + rbg_buffer[2][row][col - 1]
+                                + rbg_buffer[2][row][col]
+                                + rbg_buffer[2][row][col + 1]
+                                + rbg_buffer[2][row + 1][col - 1]
+                                + rbg_buffer[2][row + 1][col]
+                                + rbg_buffer[2][row + 1][col + 1];
+
+                        Color c = new Color(r / 9, g / 9, b / 9);
+                        Img.setRGB(col, row, c.getRGB());
+                    }
+                }
+                repaint();
+            }
+
+        }).start();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        slider_h = new javax.swing.JSlider();
+        slider_v = new javax.swing.JSlider();
+        quayLai = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        chooseImg = new javax.swing.JToggleButton();
+        download = new javax.swing.JToggleButton();
+        blur = new javax.swing.JToggleButton();
+        reset = new javax.swing.JToggleButton();
+        img = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(360, 640));
-        setMinimumSize(new java.awt.Dimension(360, 640));
+        setMinimumSize(new java.awt.Dimension(405, 700));
         setResizable(false);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(223, 237, 233));
+        jPanel1.setMinimumSize(new java.awt.Dimension(405, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(405, 700));
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jPanel2.setBackground(new java.awt.Color(223, 237, 233));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Nỗi nhớ tựa thiên hà");
-        jTextField1.setSelectionColor(new java.awt.Color(82, 143, 114));
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+        slider_h.setMinimum(1);
+        slider_h.setValue(100);
+        slider_h.setName("slider_h"); // NOI18N
+
+        slider_v.setMinimum(1);
+        slider_v.setValue(100);
+        slider_v.setName("slider_v"); // NOI18N
+
+        quayLai.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        quayLai.setText("Quay lại");
+        quayLai.setContentAreaFilled(false);
+        quayLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quayLaiActionPerformed(evt);
             }
         });
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("Melody Of The Night");
-        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField2MouseClicked(evt);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setText("Width");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("Height");
+
+        chooseImg.setBackground(new java.awt.Color(113, 165, 138));
+        chooseImg.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        chooseImg.setText("Chọn ảnh");
+        chooseImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseImgActionPerformed(evt);
             }
         });
 
-        jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("We Really Love");
-        jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField3MouseClicked(evt);
+        download.setBackground(new java.awt.Color(113, 165, 138));
+        download.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        download.setText("Tải xuống");
+        download.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downloadActionPerformed(evt);
             }
         });
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setText("Windy Hill");
-        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField4MouseClicked(evt);
+        blur.setBackground(new java.awt.Color(113, 165, 138));
+        blur.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        blur.setText("Blur");
+        blur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blurActionPerformed(evt);
             }
         });
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField5.setText("Winter Sonata");
-        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField5MouseClicked(evt);
-            }
-        });
-
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField6.setText("Love Is Like A Flower");
-        jTextField6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField6MouseClicked(evt);
-            }
-        });
-
-        jTextField7.setEditable(false);
-        jTextField7.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField7.setText("Kiss The Rain");
-        jTextField7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField7MouseClicked(evt);
-            }
-        });
-
-        jTextField8.setEditable(false);
-        jTextField8.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField8.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField8.setText("Love After That");
-        jTextField8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField8MouseClicked(evt);
-            }
-        });
-
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField9.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField9.setText("Endless Path");
-        jTextField9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField9MouseClicked(evt);
-            }
-        });
-
-        jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(179, 204, 179));
-        jTextField10.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField10.setText("It's Your Day");
-        jTextField10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField10MouseClicked(evt);
+        reset.setBackground(new java.awt.Color(113, 165, 138));
+        reset.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
             }
         });
 
@@ -285,57 +235,94 @@ public class EditImage extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(quayLai)
+                        .addGap(97, 97, 97)
+                        .addComponent(chooseImg)
+                        .addGap(18, 18, 18)
+                        .addComponent(download))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(32, 32, 32)
+                                .addComponent(slider_h, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(28, 28, 28)
+                                .addComponent(slider_v, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(blur, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(quayLai)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chooseImg)
+                            .addComponent(download))))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1))
+                    .addComponent(slider_h, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2))
+                    .addComponent(slider_v, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(blur))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(reset))))
         );
 
-        jScrollPane1.setViewportView(jPanel2);
+        img.setBackground(new java.awt.Color(161, 204, 195));
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 39, 336, 560));
+        javax.swing.GroupLayout imgLayout = new javax.swing.GroupLayout(img);
+        img.setLayout(imgLayout);
+        imgLayout.setHorizontalGroup(
+            imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 363, Short.MAX_VALUE)
+        );
+        imgLayout.setVerticalGroup(
+            imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 448, Short.MAX_VALUE)
+        );
 
-        jToggleButton2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jToggleButton2.setText("Quay lại");
-        jToggleButton2.setContentAreaFilled(false);
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Data/BG/3/bigger/1 (63).jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -348,211 +335,175 @@ public class EditImage extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 374, 677);
+        setSize(new java.awt.Dimension(419, 737));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void quayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiActionPerformed
         // TODO add your handling code here:
         new TrangChu().setVisible(true);
         this.dispose();
-        //sound.stop();
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_quayLaiActionPerformed
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
+    private void chooseImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseImgActionPerformed
+
+        img.removeAll();
+
+        img.setLayout(new BorderLayout());
+        slider_h.addChangeListener((ChangeListener) this);
+        slider_v.addChangeListener((ChangeListener) this);
+
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter imageFilter = new FileNameExtensionFilter("Hinh anh", "jpg", "png");
+        fileChooser.setFileFilter(imageFilter);
+        fileChooser.setMultiSelectionEnabled(false);
+
+        int x = fileChooser.showDialog(this, "Chon file");
+        if (x == JFileChooser.APPROVE_OPTION) {
+            f = fileChooser.getSelectedFile();
+
+            path = f.getAbsolutePath();
+
+            try {
+                targetImg = ImageIO.read(f);
+                Img = toBufferedImage(targetImg);
+                rbg_buffer = new int[3][Img.getHeight()][Img.getWidth()];
+
+                repaint();
+            } catch (IOException ex) {
+                Logger.getLogger(EditImage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            targetWidth = targetImg.getWidth(null);
+            targetHeight = targetImg.getHeight(null);
+
+            JLabel lbImg = new JLabel(new ImageIcon(targetImg));
+
+            lbImg.setHorizontalAlignment(SwingConstants.CENTER);
+            lbImg.setVerticalAlignment(SwingConstants.CENTER);
+            img.add(lbImg, BorderLayout.CENTER);
+            img.updateUI();
+
         }
-        
-        String path="src/Data/sounds/NoiNhoTuaThienHa-CMJ-6316523.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField1MouseClicked
 
-    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+
+    }//GEN-LAST:event_chooseImgActionPerformed
+
+    private void downloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadActionPerformed
         // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
+        JOptionPane jOptionPane1 = new JOptionPane();
+        int x = jOptionPane1.showConfirmDialog(this, "Bạn có chắc chắn muốn lưu?");
+        if (x == jOptionPane1.YES_OPTION) {
+            String fileName = jOptionPane1.showInputDialog(this, "File name:", "Lưu ảnh", jOptionPane1.DEFAULT_OPTION);
+            save = fileName;
+            try {
+                SaveScreenShot(img, save + ".png");
+                //save=""+SO++;
+            } catch (Exception e) {
+            }
         }
-        
-        String path="src/Data/sounds/NightOfThePiano-HoaTau-3089095.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField2MouseClicked
+    }//GEN-LAST:event_downloadActionPerformed
 
-    private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
+    private void blurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blurActionPerformed
+        
+        JLabel lb = (JLabel) img.getComponent(0);
+        lb.setSize(new Dimension(targetWidth, targetHeight));
+        lb.setIcon(new ImageIcon(targetImg.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH)));
+        SmoothImage();
+
+    }//GEN-LAST:event_blurActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+       
+        rbg_buffer = new int[3][Img.getHeight()][Img.getWidth()];
+       
+        try {
+           
+            targetImg = ImageIO.read(f);
+        } catch (IOException ex) {
+            Logger.getLogger(EditImage.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        String path="src/Data/sounds/WeReallyLovePiano-VA_3za33.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField3MouseClicked
+        Img = toBufferedImage(targetImg);
+        repaint();
+        slider_h.setValue(100);
+        slider_v.setValue(100);
+        JLabel lb = (JLabel) img.getComponent(0);
+       
+        lb.setIcon(new ImageIcon(path));
+        repaint();
 
-    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/WindyHill-VA-5941232.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField4MouseClicked
+    }//GEN-LAST:event_resetActionPerformed
 
-    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/WinterSonata-RichardClayderman_mbjj.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField5MouseClicked
-
-    private void jTextField6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField6MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/LoveIsLikeAFlower-Danbi_3w7nv.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField6MouseClicked
-
-    private void jTextField7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField7MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/KissTheRain-Yiruma-75858.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField7MouseClicked
-
-    private void jTextField8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField8MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/LoveAfterThatPiano-VA_3za46.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField8MouseClicked
-
-    private void jTextField9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField9MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/EndlessPathPiano-VA_3za53.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField9MouseClicked
-
-    private void jTextField10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseClicked
-        // TODO add your handling code here:
-        if(sound!=null) {
-            sound.stop();
-        }
-        
-        String path="src/Data/sounds/ItsYourDay-Yiruma_48t6f.wav";
-        IOFileFont.viet("src/controller/sound.txt", path);
-        soundPath=IOFileFont.doc("src/controller/sound.txt");
-        sound=new Sound(soundPath);
-        //Khởi tạo đối tượng với đường dận đến file nhạc ở đây mình demo là abc.wav
-        sound.start();
-    }//GEN-LAST:event_jTextField10MouseClicked
-
-    public static BufferedImage cropImage(BufferedImage bufferedImage, int x, int y, int width, int height){
-        BufferedImage croppedImage = bufferedImage.getSubimage(x, y, width, height);
-        return croppedImage;
-    }
-    
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(EditImage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(EditImage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(EditImage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(EditImage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new EditImage().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton blur;
+    private javax.swing.JToggleButton chooseImg;
+    private javax.swing.JToggleButton download;
+    private javax.swing.JPanel img;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton quayLai;
+    private javax.swing.JToggleButton reset;
+    private javax.swing.JSlider slider_h;
+    private javax.swing.JSlider slider_v;
     // End of variables declaration//GEN-END:variables
+
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        
+        JSlider j = (JSlider) e.getSource();
+        JLabel lb = (JLabel) img.getComponent(0);
+        switch (j.getName()) {
+            case "slider_h":
+                targetWidth = (targetImg.getWidth(null) * j.getValue()) / 100;
+                lb.setSize(new Dimension(targetWidth, targetHeight));
+                lb.setIcon(new ImageIcon(targetImg.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH)));               
+                break;
+            case "slider_v":
+                targetHeight = (targetImg.getHeight(null) * j.getValue()) / 100;
+                lb.setSize(new Dimension(targetWidth, targetHeight));
+                lb.setIcon(new ImageIcon(targetImg.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH)));
+                break;
+            
+        }
+        lb.updateUI();
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+        
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        
+    }
+
 }
